@@ -1,0 +1,15 @@
+CREATE TABLE ExpenseDb(
+  id TEXT NOT NULL PRIMARY KEY,
+  amount REAL NOT NULL,
+  category TEXT NOT NULL,
+  expense_date INTEGER NOT NULL,
+  note TEXT DEFAULT NULL,
+  created_at INTEGER NOT NULL DEFAULT (datetime('now','localtime'))
+);
+
+add:
+INSERT INTO ExpenseDb(id, amount, category, expense_date, note)
+VALUES (?,?,?,?,?);
+
+getAll:
+SELECT * FROM ExpenseDb;

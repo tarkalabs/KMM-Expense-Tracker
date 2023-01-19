@@ -44,6 +44,7 @@ kotlin {
       dependencies {
         implementation("com.squareup.sqldelight:sqlite-driver:1.5.4")
         implementation("org.robolectric:robolectric:4.9.2")
+        implementation("androidx.test:core-ktx:1.5.0")
       }
     }
     val iosX64Main by getting
@@ -78,9 +79,6 @@ android {
     minSdk = 24
     targetSdk = 33
   }
-}
-dependencies {
-  implementation("androidx.test:core-ktx:1.5.0")
 }
 
 sqldelight {

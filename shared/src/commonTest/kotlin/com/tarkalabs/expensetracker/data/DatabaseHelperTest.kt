@@ -29,7 +29,10 @@ class DatabaseHelperTest {
 
   @Test fun `Add Expenses Success`() = runTest {
     dbHelper.addExpense(
-      "id",100.0f, DINE_OUT.toString(), System.now().toLocalDateTime(TimeZone.currentSystemDefault()).date.atStartOfDayIn(TimeZone.currentSystemDefault()).toEpochMilliseconds(), null
+      "id", 100.0f, DINE_OUT.toString(),
+      System.now().toLocalDateTime(TimeZone.currentSystemDefault()).date.atStartOfDayIn(
+        TimeZone.currentSystemDefault()
+      ).toEpochMilliseconds(), null
     )
     dbHelper.getAllExpenses().test {
       assertEquals("id", awaitItem().first().id)

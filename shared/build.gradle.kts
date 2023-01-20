@@ -1,3 +1,5 @@
+import org.jetbrains.kotlin.gradle.targets.native.tasks.KotlinNativeSimulatorTest
+
 plugins {
   kotlin("multiplatform")
   id("com.android.library")
@@ -18,6 +20,13 @@ kotlin {
   }
 
   sourceSets {
+    all {
+      languageSettings.apply {
+        optIn("kotlin.RequiresOptIn")
+        optIn("kotlinx.coroutines.ExperimentalCoroutinesApi")
+      }
+    }
+
     val commonMain by getting {
       dependencies {
         implementation("org.jetbrains.kotlinx:kotlinx-datetime:0.4.0")
@@ -86,4 +95,8 @@ sqldelight {
     packageName = "com.tarkalabs.expensetracker"
     schemaOutputDirectory = file("src/commonMain/sqldelight/com/tarkalabs/expensetracker/db")
   }
+}
+
+tasks.getByName<KotlinNativeSimulatorTest>("iosSimulatorArm64Test") {
+  deviceId = "iPhone 14"
 }

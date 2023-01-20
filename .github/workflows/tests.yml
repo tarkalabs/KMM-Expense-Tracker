@@ -1,0 +1,19 @@
+# This workflow will run test on all platforms
+
+name: KMM Test
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  build:
+
+    runs-on: macos-latest
+
+    steps:
+    - uses: actions/checkout@v3
+    - name: Run tests
+      run: ./gradlew :shared:allTests

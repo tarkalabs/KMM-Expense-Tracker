@@ -2,15 +2,14 @@ import SwiftUI
 import shared
 
 struct ContentView: View {
-	let greet = Greeting().greet()
-
-	var body: some View {
-		Text(greet)
-	}
+    let viewModel: AddExpenseViewModel = Koin.instance.get()
+    var body: some View {
+        Text("Hello World")
+    }
 }
 
 struct ContentView_Previews: PreviewProvider {
-	static var previews: some View {
+    static var previews: some View {
 		ContentView()
-	}
+    }
 }

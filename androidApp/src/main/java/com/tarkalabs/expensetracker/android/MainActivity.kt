@@ -3,23 +3,21 @@ package com.tarkalabs.expensetracker.android
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.material.*
+import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import com.tarkalabs.expensetracker.android.addexpense.AddExpenseScreen
+import com.tarkalabs.expensetracker.presentation.AddExpenseViewModel
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class MainActivity : ComponentActivity() {
+
+  private val addExpenseViewModel: AddExpenseViewModel by viewModel()
   override fun onCreate(savedInstanceState: Bundle?) {
     super.onCreate(savedInstanceState)
     setContent {
       MyApplicationTheme {
-        Surface(
-          modifier = Modifier.fillMaxSize(),
-          color = MaterialTheme.colors.background
-        ) {
-          GreetingView("Hello, Android!")
-        }
+        AddExpenseScreen(viewModel = addExpenseViewModel, onBackPress = { finish() })
       }
     }
   }

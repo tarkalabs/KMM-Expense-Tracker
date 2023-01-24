@@ -9,6 +9,7 @@ import com.tarkalabs.expensetracker.sqldelight.transactionWithContext
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flowOn
+import kotlinx.datetime.Clock
 
 class DatabaseHelper(
   sqlDriver: SqlDriver,
@@ -30,11 +31,16 @@ class DatabaseHelper(
         amount = amount.toDouble(),
         expense_date = expenseDate,
         note = note,
+        created_at = Clock.System.now().toEpochMilliseconds()
       )
     }
   }
 
   suspend fun getAllExpenses(): Flow<List<ExpenseDb>> {
     return dbRef.expenseQueries.getAll().asFlow().mapToList().flowOn(backgroundDispatcher)
+  }
+
+  suspend fun deleteAll() {
+    dbRef.expenseQueries.deleteAll()
   }
 }

@@ -31,8 +31,9 @@ kotlin {
       dependencies {
         implementation("org.jetbrains.kotlinx:kotlinx-datetime:0.4.0")
         implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.4")
-        implementation("com.squareup.sqldelight:coroutines-extensions:1.5.4")
+        implementation("com.squareup.sqldelight:coroutines-extensions:1.5.5")
         implementation("io.insert-koin:koin-core:3.2.2")
+        implementation("io.github.aakira:napier:2.6.1")
       }
     }
     val commonTest by getting {
@@ -45,13 +46,13 @@ kotlin {
     }
     val androidMain by getting {
       dependencies {
-        implementation("com.squareup.sqldelight:android-driver:1.5.4")
+        implementation("com.squareup.sqldelight:android-driver:1.5.5")
         implementation("androidx.lifecycle:lifecycle-viewmodel:2.5.1")
       }
     }
     val androidTest by getting {
       dependencies {
-        implementation("com.squareup.sqldelight:sqlite-driver:1.5.4")
+        implementation("com.squareup.sqldelight:sqlite-driver:1.5.5")
         implementation("org.robolectric:robolectric:4.9.2")
         implementation("androidx.test:core-ktx:1.5.0")
       }
@@ -66,7 +67,7 @@ kotlin {
       iosSimulatorArm64Main.dependsOn(this)
 
       dependencies {
-        implementation("com.squareup.sqldelight:native-driver:1.5.4")
+        implementation("com.squareup.sqldelight:native-driver:1.5.5")
       }
     }
     val iosX64Test by getting

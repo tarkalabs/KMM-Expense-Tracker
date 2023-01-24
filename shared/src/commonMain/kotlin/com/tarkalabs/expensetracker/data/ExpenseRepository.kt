@@ -4,11 +4,8 @@ import com.tarkalabs.expensetracker.db.ExpenseDb
 import com.tarkalabs.expensetracker.domain.Category
 import com.tarkalabs.expensetracker.domain.Expense
 import com.tarkalabs.expensetracker.domain.UUID
-import kotlinx.datetime.Instant
+import com.tarkalabs.expensetracker.ext.toEpochMillis
 import kotlinx.datetime.LocalDate
-import kotlinx.datetime.TimeZone
-import kotlinx.datetime.atStartOfDayIn
-import kotlinx.datetime.toLocalDateTime
 
 class ExpenseRepository(private val databaseHelper: DatabaseHelper) {
   suspend fun addExpense(
@@ -21,9 +18,7 @@ class ExpenseRepository(private val databaseHelper: DatabaseHelper) {
       id = UUID().toString(),
       amount = amount,
       category = category.name,
-      expenseDate = expenseDate.atStartOfDayIn(
-        TimeZone.currentSystemDefault(),
-      ).toEpochMilliseconds(),
+      expenseDate = expenseDate.toEpochMillis(),
       note = note,
     )
   }
@@ -32,9 +27,7 @@ class ExpenseRepository(private val databaseHelper: DatabaseHelper) {
 fun ExpenseDb.map(): Expense {
   return Expense(
     id = id, category = Category.valueOf(category), amount = amount.toFloat(),
-    expenseDate = Instant.fromEpochMilliseconds(expense_date).toLocalDateTime(
-      TimeZone.currentSystemDefault()
-    ).date, note = note, createdAt = Instant.fromEpochMilliseconds(created_at)
-    .toLocalDateTime(TimeZone.currentSystemDefault())
+    expenseDate = expense_date, note = note,
+    createdAt = created_at
   )
 }

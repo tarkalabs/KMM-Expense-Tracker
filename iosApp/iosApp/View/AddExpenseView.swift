@@ -1,10 +1,6 @@
 import SwiftUI
 import shared
 
-func getHelper() -> [String] {
-    Category.companion.getCategoryAsList().map { $0.name }
-}
-
 struct AddExpenseView: View {
     @Environment(\.dismiss) var dismiss
     let viewModel: AddExpenseViewModel = Koin.instance.get()

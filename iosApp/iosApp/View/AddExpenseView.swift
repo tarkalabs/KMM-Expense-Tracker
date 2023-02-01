@@ -123,7 +123,6 @@ struct AddExpenseView: View {
             Text("Submit")
                 .font(.title2.bold())
                 .foregroundColor(.white)
-                .opacity(0.7)
                 .padding(.vertical, 20)
                 .padding(.horizontal, 15)
                 .frame(maxWidth: .infinity)
@@ -142,7 +141,11 @@ struct AddExpenseView: View {
             
             addDate
             
+            Spacer()
+            
             submitButton
+            
+            Spacer()
         }.frame(maxWidth: .infinity, maxHeight: .infinity)
             .overlay(alignment: .topTrailing) {
                 Button {

@@ -6,5 +6,5 @@ data class Expense(
   val category: Category,
   val expenseDate: Long,
   val note: String?,
-  val createdAt: Long
+  val createdAt: Long,
 )

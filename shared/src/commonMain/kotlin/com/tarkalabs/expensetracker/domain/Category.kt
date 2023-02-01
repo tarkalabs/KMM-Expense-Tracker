@@ -6,5 +6,17 @@ enum class Category {
   RENT,
   TRANSPORTATION,
   DINE_OUT,
-  ENTERTAINMENT,
+  ENTERTAINMENT;
+
+
+  companion object {
+    // Helper to convert KotlinArray to List which translated to iOS Array
+    fun getCategoryAsList(): List<Category> {
+      return values().toList()
+    }
+
+    fun getCatoegoryFromName(name: String): Category {
+      return Category.valueOf(name)
+    }
+  }
 }

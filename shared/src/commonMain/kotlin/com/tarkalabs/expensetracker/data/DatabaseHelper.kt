@@ -5,6 +5,7 @@ import com.squareup.sqldelight.runtime.coroutines.asFlow
 import com.squareup.sqldelight.runtime.coroutines.mapToList
 import com.tarkalabs.expensetracker.ExpensesDb
 import com.tarkalabs.expensetracker.db.ExpenseDb
+import com.tarkalabs.expensetracker.domain.ExpenseType
 import com.tarkalabs.expensetracker.sqldelight.transactionWithContext
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.flow.Flow

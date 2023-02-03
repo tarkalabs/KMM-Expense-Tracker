@@ -110,7 +110,7 @@ struct AddExpenseView: View {
     @ViewBuilder
     var submitButton: some View {
         Button {
-            viewModel.addExpense(amount: Float(amount) ?? 0.0, category: Category.companion.getCatoegoryFromName(name: category), expenseDateInMs: expenseDate.millisecondsSince1970, note: remarkNote) { error in
+            viewModel.addExpense(amount: Float(amount) ?? 0.0, category: Category.companion.getCategoryFromName(name: category), expenseDateInMs: expenseDate.millisecondsSince1970, note: remarkNote) { error in
                 if error == nil {
                     dismiss()
                 }

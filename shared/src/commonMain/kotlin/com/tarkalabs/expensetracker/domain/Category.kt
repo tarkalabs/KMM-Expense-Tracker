@@ -15,7 +15,7 @@ enum class Category {
       return values().toList()
     }
 
-    fun getCatoegoryFromName(name: String): Category {
+    fun getCategoryFromName(name: String): Category {
       return Category.valueOf(name)
     }
   }

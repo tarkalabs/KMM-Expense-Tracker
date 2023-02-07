@@ -21,7 +21,7 @@ object Modules {
   }
 
   val core = module {
-    factory { DatabaseHelper(get(), Dispatchers.Default) }
+    single { DatabaseHelper(get(), Dispatchers.Default) }
   }
 }
 

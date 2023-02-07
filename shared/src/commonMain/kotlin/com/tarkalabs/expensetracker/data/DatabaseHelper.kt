@@ -37,7 +37,7 @@ class DatabaseHelper(
     }
   }
 
-  suspend fun getAllExpenses(): Flow<List<ExpenseDb>> {
+  fun getAllExpenses(): Flow<List<ExpenseDb>> {
     return dbRef.expenseQueries.getAll().asFlow().mapToList().flowOn(backgroundDispatcher)
   }
 

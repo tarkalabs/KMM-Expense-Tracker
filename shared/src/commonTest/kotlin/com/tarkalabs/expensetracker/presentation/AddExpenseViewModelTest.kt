@@ -4,6 +4,7 @@ import app.cash.turbine.test
 import com.tarkalabs.expensetracker.data.DatabaseHelper
 import com.tarkalabs.expensetracker.data.ExpenseRepository
 import com.tarkalabs.expensetracker.domain.Category.RENT
+import com.tarkalabs.expensetracker.ext.toLocalDate
 import com.tarkalabs.expensetracker.testDbConnection
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.runBlocking
@@ -29,7 +30,7 @@ class AddExpenseViewModelTest {
 
   @Test
   fun `add expense emits view state with adding true`() = runTest {
-    addExpenseViewModel.addExpense(1.0f, RENT, System.now().toEpochMilliseconds(), null)
+    addExpenseViewModel.addExpense(1.0f, RENT, System.now().toLocalDate(), null)
     addExpenseViewModel.addExpenseState.test {
       assertTrue { awaitItem().adding }
     }
@@ -37,7 +38,7 @@ class AddExpenseViewModelTest {
 
   @Test
   fun `After successful addition do not emit any new UI State`() = runTest {
-    addExpenseViewModel.addExpense(1.0f, RENT, System.now().toEpochMilliseconds(), null)
+    addExpenseViewModel.addExpense(1.0f, RENT, System.now().toLocalDate(), null)
     addExpenseViewModel.addExpenseState.test {
       skipItems(1)
       expectNoEvents()

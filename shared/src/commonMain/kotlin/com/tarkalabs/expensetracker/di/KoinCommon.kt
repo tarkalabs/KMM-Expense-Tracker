@@ -3,6 +3,7 @@ package com.tarkalabs.expensetracker.di
 import com.tarkalabs.expensetracker.data.DatabaseHelper
 import com.tarkalabs.expensetracker.data.ExpenseRepository
 import com.tarkalabs.expensetracker.presentation.AddExpenseViewModel
+import com.tarkalabs.expensetracker.presentation.ViewExpensesViewModel
 import kotlinx.coroutines.Dispatchers
 import org.koin.core.KoinApplication
 import org.koin.core.context.startKoin
@@ -18,6 +19,7 @@ object Modules {
 
   val viewModels = module {
     factory { AddExpenseViewModel(get()) }
+    factory { ViewExpensesViewModel(get()) }
   }
 
   val core = module {

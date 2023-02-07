@@ -120,7 +120,7 @@ import kotlinx.datetime.LocalDate
           viewModel.addExpense(
             amount = amountInFloat,
             category = category,
-            expenseDateInMs = expenseDate.toEpochMillis(),
+            expenseDate = expenseDate,
             note = note.ifBlank { null },
           )
           onBackPress()

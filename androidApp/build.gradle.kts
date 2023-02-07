@@ -39,7 +39,8 @@ dependencies {
     implementation("androidx.compose.foundation:foundation:1.3.1")
     implementation("androidx.compose.material:material:1.3.1")
     implementation("androidx.activity:activity-compose:1.6.1")
-    implementation("io.insert-koin:koin-android:3.2.3")
-    implementation("io.insert-koin:koin-androidx-compose:3.2.2")
-    implementation("com.himanshoe:kalendar:1.1.0")
+    implementation("io.insert-koin:koin-android:3.3.2")
+    implementation("io.insert-koin:koin-androidx-compose:3.4.1")
+    implementation("com.himanshoe:kalendar:1.2.0")
+    implementation("io.github.aakira:napier:2.6.1")
 }

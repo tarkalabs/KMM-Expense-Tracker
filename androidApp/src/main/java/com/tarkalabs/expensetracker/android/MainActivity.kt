@@ -1,37 +1,28 @@
 package com.tarkalabs.expensetracker.android
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import androidx.compose.material.Text
-import androidx.compose.runtime.Composable
-import androidx.compose.ui.tooling.preview.Preview
-import com.tarkalabs.expensetracker.android.addexpense.AddExpenseScreen
-import com.tarkalabs.expensetracker.presentation.AddExpenseViewModel
+import com.tarkalabs.expensetracker.android.addexpense.AddExpenseActivity
+import com.tarkalabs.expensetracker.android.viewexpenses.ViewExpensesScreen
+import com.tarkalabs.expensetracker.presentation.ViewExpensesViewModel
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class MainActivity : ComponentActivity() {
 
-  private val addExpenseViewModel: AddExpenseViewModel by viewModel()
+  private val viewExpenseViewModel: ViewExpensesViewModel by viewModel()
   override fun onCreate(savedInstanceState: Bundle?) {
     super.onCreate(savedInstanceState)
     setContent {
       MyApplicationTheme {
-        AddExpenseScreen(viewModel = addExpenseViewModel, onBackPress = { finish() })
+        ViewExpensesScreen(viewModel = viewExpenseViewModel,
+          onAddExpensePress = {
+            startActivity(
+              Intent(this, AddExpenseActivity::class.java)
+            )
+          })
       }
     }
-  }
-}
-
-@Composable
-fun GreetingView(text: String) {
-  Text(text = text)
-}
-
-@Preview
-@Composable
-fun DefaultPreview() {
-  MyApplicationTheme {
-    GreetingView("Hello, Android!")
   }
 }

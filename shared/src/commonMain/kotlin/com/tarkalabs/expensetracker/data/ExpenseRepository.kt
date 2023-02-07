@@ -5,6 +5,10 @@ import com.tarkalabs.expensetracker.domain.Category
 import com.tarkalabs.expensetracker.domain.Expense
 import com.tarkalabs.expensetracker.domain.UUID
 import com.tarkalabs.expensetracker.ext.toEpochMillis
+import com.tarkalabs.expensetracker.ext.toLocalDate
+import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.map
+import kotlinx.datetime.Instant
 import kotlinx.datetime.LocalDate
 
 class ExpenseRepository(private val databaseHelper: DatabaseHelper) {
@@ -22,12 +26,16 @@ class ExpenseRepository(private val databaseHelper: DatabaseHelper) {
       note = note,
     )
   }
+
+  fun getExpenses(): Flow<List<Expense>> {
+    return databaseHelper.getAllExpenses().map { expenseList -> expenseList.map { it.map() } }
+  }
 }
 
 fun ExpenseDb.map(): Expense {
   return Expense(
     id = id, category = Category.valueOf(category), amount = amount.toFloat(),
-    expenseDate = expense_date, note = note,
-    createdAt = created_at
+    expenseDate = Instant.fromEpochMilliseconds(expense_date).toLocalDate(), note = note,
+    createdAt = Instant.fromEpochMilliseconds(created_at)
   )
 }

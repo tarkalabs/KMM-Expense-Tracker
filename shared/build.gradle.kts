@@ -4,6 +4,7 @@ plugins {
   kotlin("multiplatform")
   id("com.android.library")
   id("com.squareup.sqldelight")
+  id("com.rickclephas.kmp.nativecoroutines")
 }
 
 kotlin {
@@ -16,6 +17,7 @@ kotlin {
   ).forEach {
     it.binaries.framework {
       baseName = "shared"
+      export("org.jetbrains.kotlinx:kotlinx-datetime:0.4.0")
     }
   }
 
@@ -32,7 +34,7 @@ kotlin {
         implementation("org.jetbrains.kotlinx:kotlinx-datetime:0.4.0")
         implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.4")
         implementation("com.squareup.sqldelight:coroutines-extensions:1.5.5")
-        implementation("io.insert-koin:koin-core:3.2.2")
+        implementation("io.insert-koin:koin-core:3.3.2")
         implementation("io.github.aakira:napier:2.6.1")
       }
     }
@@ -68,6 +70,7 @@ kotlin {
 
       dependencies {
         implementation("com.squareup.sqldelight:native-driver:1.5.5")
+        api("org.jetbrains.kotlinx:kotlinx-datetime:0.4.0")
       }
     }
     val iosX64Test by getting

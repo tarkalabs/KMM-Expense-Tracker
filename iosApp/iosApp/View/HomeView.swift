@@ -79,7 +79,6 @@ struct HomeView: View {
                 }
             }
         }.onAppear {
-            print("on Appear")
             getExpenses()
         }
     }

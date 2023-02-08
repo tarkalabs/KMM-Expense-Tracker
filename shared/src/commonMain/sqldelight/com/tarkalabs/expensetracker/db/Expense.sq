@@ -12,7 +12,7 @@ INSERT INTO ExpenseDb(id, amount, category, expense_date, note, created_at)
 VALUES (?,?,?,?,?, ?);
 
 getAll:
-SELECT * FROM ExpenseDb;
+SELECT * FROM ExpenseDb ORDER BY expense_date DESC;
 
 deleteAll:
 DELETE FROM ExpenseDb;

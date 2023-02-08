@@ -100,10 +100,7 @@
 				2152FB032600AC8F00CF470E /* iOSApp.swift */,
 				058557D7273AAEEB004C7B11 /* Preview Content */,
 				8BA10CBD297E57C30083EED0 /* Koin.swift */,
-				EDB857A029939A9100210222 /* KotlinArray+toArray.swift */,
-				EDB857A229939AE000210222 /* LocalDate+Comparable.swift */,
-				EDB857A429939B0A00210222 /* Expense+Identifiable.swift */,
-				ED2E8816298ABB95003556CA /* Date+MillisecondsSince1970.swift */,
+				EDB857A62993A2C500210222 /* Utilities */,
 			);
 			path = iosApp;
 			sourceTree = "<group>";
@@ -122,6 +119,17 @@
 				ED2E8810298A9ECA003556CA /* HomeView.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		EDB857A62993A2C500210222 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				EDB857A029939A9100210222 /* KotlinArray+toArray.swift */,
+				EDB857A229939AE000210222 /* LocalDate+Comparable.swift */,
+				EDB857A429939B0A00210222 /* Expense+Identifiable.swift */,
+				ED2E8816298ABB95003556CA /* Date+MillisecondsSince1970.swift */,
+			);
+			path = Utilities;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

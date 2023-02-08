@@ -176,4 +176,3 @@ struct AddExpenseView_Previews: PreviewProvider {
         AddExpenseView()
     }
 }
-

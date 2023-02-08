@@ -9,3 +9,5 @@
 import shared
 
 extension Expense: Identifiable { }
+
+

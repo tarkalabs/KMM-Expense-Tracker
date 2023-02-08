@@ -41,10 +41,6 @@ class DatabaseHelper(
     return dbRef.expenseQueries.getAll().asFlow().mapToList().flowOn(backgroundDispatcher)
   }
 
-  fun getAllExpensesSync(): List<ExpenseDb> {
-    return dbRef.expenseQueries.getAll().executeAsList()
-  }
-
   suspend fun deleteAll() {
     dbRef.expenseQueries.deleteAll()
   }

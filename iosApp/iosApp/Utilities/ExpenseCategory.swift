@@ -12,10 +12,10 @@ typealias ExpenseCategory = shared.Category
 
 extension ExpenseCategory {
     func getFormattedName() -> String {
-        self.name.replacingOccurrences(of: "_", with: " ").capitalized
+        name.replacingOccurrences(of: "_", with: " ").capitalized
     }
     
     static func getCategoryValues() -> [ExpenseCategory] {
-        Category.values().toArray().compactMap { $0 as? shared.Category }
+        ExpenseCategory.values().toArray().compactMap { $0 as? ExpenseCategory }
     }
 }

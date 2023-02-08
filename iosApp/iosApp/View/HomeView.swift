@@ -59,22 +59,24 @@ struct HomeView: View {
                         .background {
                             Circle().foregroundColor(Color.teal)
                         }
-                        
+                    
                     VStack(alignment: .leading, spacing: 5) {
                         Text("\(item.category.getFormattedName())")
                             .font(.callout)
                             .bold()
                         
-                        Text("$ \(item.amount)")
+                        Text(String(format: "$ %.2f", item.amount))
                         
                         Text("\(item.expenseDate)")
                             .font(.caption)
                         
-                        Text(item.note ?? "")
-                            .padding(.horizontal)
-                            .background {
-                                Capsule().fill(Color.mint)
-                            }
+                        if let note = item.note, !note.isEmpty {
+                            Text(note)
+                                .padding(.horizontal)
+                                .background {
+                                    Capsule().fill(Color.mint)
+                                }
+                        }
                     }
                 }
             }

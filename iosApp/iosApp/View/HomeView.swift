@@ -8,10 +8,13 @@
 
 import SwiftUI
 import shared
+import Combine
+import KMPNativeCoroutinesCombine
 
 struct HomeView: View {
     @State private var showingSheet = false
-    let expenseRepository: ExpenseRepository = Koin.instance.get()
+    let expenseViewModel: ViewExpensesViewModel = Koin.instance.get()
+    @State private var cancellable: AnyCancellable? = nil
     @State private var expenses: [Expense] = []
     private var categoryEmojis = ["🛒", "🧾", "🏠", "🚗", "🍽️", "🕹"]
     
@@ -74,16 +77,29 @@ struct HomeView: View {
                             }
                     }
                 }
-            }.refreshable {
-                getExpenses()
             }
         }.onAppear {
+            print("on Appear")
             getExpenses()
         }
     }
     
     private func getExpenses() {
-        expenses = expenseRepository.getExpenseSync().sorted(by: { $0.expenseDate > $1.expenseDate })
+        if (cancellable != nil) {
+            cancellable?.cancel()
+        }
+        cancellable = createPublisher(for: expenseViewModel.viewStateNative)
+            .receive(on: DispatchQueue.main)
+            .sink(receiveCompletion: { completion in
+                switch completion {
+                case .failure(let error):
+                    print(error)
+                case .finished:
+                    print("Finished")
+                }
+            }, receiveValue: { value in
+                self.expenses = value.expenses
+            })
     }
 }
 

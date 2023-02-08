@@ -6,11 +6,12 @@ struct AddExpenseView: View {
     let viewModel: AddExpenseViewModel = Koin.instance.get()
     
     @State private var amount = ""
-    @State private var category = "Add Category"
+    @State private var category = "Select Category"
     @State private var revealCategories = false
     @State private var expenseDate = Date()
     @State private var remarkNote = ""
-    
+    @State private var selectCategoryIndex: Int?
+        
     @ViewBuilder
     var addExpense: some View {
         Text("Add Expense")
@@ -46,15 +47,20 @@ struct AddExpenseView: View {
     var addCategory: some View {
         GroupBox {
             DisclosureGroup(category, isExpanded: $revealCategories) {
-                ForEach(Category.companion.getCategoryAsList().map { $0.name }, id: \.self) { value in
+                let categoryValues = Category.values().toArray().map { "\($0)" }
+                let categoryValuesForDisplay = categoryValues.map { $0.replacingOccurrences(of: "_", with: " ").capitalized }
+                
+                ForEach(categoryValuesForDisplay, id: \.self) { value in
                     Text(value)
                         .frame(maxWidth: .infinity, alignment: .leading)
-                        .font(.caption)
-                        .foregroundColor(.gray)
+                        .padding(5)
+                        .font(.body)
                         .gesture(
                             TapGesture()
                                 .onEnded { _ in
                                     revealCategories.toggle()
+                                    
+                                    selectCategoryIndex = categoryValuesForDisplay.firstIndex(where: { $0 == value })
                                     category = value
                                 }
                         )
@@ -110,9 +116,13 @@ struct AddExpenseView: View {
     @ViewBuilder
     var submitButton: some View {
         Button {
-            viewModel.addExpense(amount: Float(amount) ?? 0.0, category: Category.companion.getCategoryFromName(name: category), expenseDate: DateUtilsKt.toDefaultTzLocalDate(expenseDate), note: remarkNote) { error in
-                if error == nil {
-                    dismiss()
+            let categoryValues = Category.values().toArray().map { "\($0)" }
+            
+            if let selectCategoryIndex {
+                viewModel.addExpense(amount: Float(amount) ?? 0.0, category: Category.companion.getCategoryFromName(name: categoryValues[selectCategoryIndex]), expenseDate: DateUtilsKt.toDefaultTzLocalDate(expenseDate), note: remarkNote) { error in
+                    if error == nil {
+                        dismiss()
+                    }
                 }
             }
         } label: {
@@ -166,5 +176,4 @@ struct AddExpenseView_Previews: PreviewProvider {
         AddExpenseView()
     }
 }
-
 

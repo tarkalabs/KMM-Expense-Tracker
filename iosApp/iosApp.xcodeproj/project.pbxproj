@@ -15,11 +15,12 @@
 		8B273F15298CBC1300986902 /* KMPNativeCoroutinesCombine in Frameworks */ = {isa = PBXBuildFile; productRef = 8B273F14298CBC1300986902 /* KMPNativeCoroutinesCombine */; };
 		8B273F17298CBC1300986902 /* KMPNativeCoroutinesCore in Frameworks */ = {isa = PBXBuildFile; productRef = 8B273F16298CBC1300986902 /* KMPNativeCoroutinesCore */; };
 		8B273F19298CBC1300986902 /* KMPNativeCoroutinesRxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 8B273F18298CBC1300986902 /* KMPNativeCoroutinesRxSwift */; };
-		8B273F1B298D56CA00986902 /* ViewExpenseStateWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B273F1A298D56CA00986902 /* ViewExpenseStateWrapper.swift */; };
 		8BA10CBE297E57C30083EED0 /* Koin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BA10CBD297E57C30083EED0 /* Koin.swift */; };
 		ED2E8814298AA0DD003556CA /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED2E8810298A9ECA003556CA /* HomeView.swift */; };
-		ED2E8815298AA0E3003556CA /* ExpenseCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED2E8812298A9EEE003556CA /* ExpenseCardView.swift */; };
 		ED2E8817298ABB95003556CA /* Date+MillisecondsSince1970.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED2E8816298ABB95003556CA /* Date+MillisecondsSince1970.swift */; };
+		EDB857A129939A9100210222 /* KotlinArray+toArray.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB857A029939A9100210222 /* KotlinArray+toArray.swift */; };
+		EDB857A329939AE000210222 /* LocalDate+Comparable.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB857A229939AE000210222 /* LocalDate+Comparable.swift */; };
+		EDB857A529939B0A00210222 /* Expense+Identifiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB857A429939B0A00210222 /* Expense+Identifiable.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -42,11 +43,12 @@
 		7555FF7B242A565900829871 /* iosApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iosApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7555FF82242A565900829871 /* AddExpenseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddExpenseView.swift; sourceTree = "<group>"; };
 		7555FF8C242A565B00829871 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		8B273F1A298D56CA00986902 /* ViewExpenseStateWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewExpenseStateWrapper.swift; sourceTree = "<group>"; };
 		8BA10CBD297E57C30083EED0 /* Koin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Koin.swift; sourceTree = "<group>"; };
 		ED2E8810298A9ECA003556CA /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
-		ED2E8812298A9EEE003556CA /* ExpenseCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenseCardView.swift; sourceTree = "<group>"; };
 		ED2E8816298ABB95003556CA /* Date+MillisecondsSince1970.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+MillisecondsSince1970.swift"; sourceTree = "<group>"; };
+		EDB857A029939A9100210222 /* KotlinArray+toArray.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "KotlinArray+toArray.swift"; sourceTree = "<group>"; };
+		EDB857A229939AE000210222 /* LocalDate+Comparable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LocalDate+Comparable.swift"; sourceTree = "<group>"; };
+		EDB857A429939B0A00210222 /* Expense+Identifiable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Expense+Identifiable.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,12 +96,14 @@
 			children = (
 				058557BA273AAA24004C7B11 /* Assets.xcassets */,
 				ED2E8818298ABBA6003556CA /* View */,
-				ED2E8816298ABB95003556CA /* Date+MillisecondsSince1970.swift */,
 				7555FF8C242A565B00829871 /* Info.plist */,
 				2152FB032600AC8F00CF470E /* iOSApp.swift */,
 				058557D7273AAEEB004C7B11 /* Preview Content */,
 				8BA10CBD297E57C30083EED0 /* Koin.swift */,
-				8B273F1A298D56CA00986902 /* ViewExpenseStateWrapper.swift */,
+				EDB857A029939A9100210222 /* KotlinArray+toArray.swift */,
+				EDB857A229939AE000210222 /* LocalDate+Comparable.swift */,
+				EDB857A429939B0A00210222 /* Expense+Identifiable.swift */,
+				ED2E8816298ABB95003556CA /* Date+MillisecondsSince1970.swift */,
 			);
 			path = iosApp;
 			sourceTree = "<group>";
@@ -115,7 +119,6 @@
 			isa = PBXGroup;
 			children = (
 				7555FF82242A565900829871 /* AddExpenseView.swift */,
-				ED2E8812298A9EEE003556CA /* ExpenseCardView.swift */,
 				ED2E8810298A9ECA003556CA /* HomeView.swift */,
 			);
 			path = View;
@@ -222,11 +225,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EDB857A529939B0A00210222 /* Expense+Identifiable.swift in Sources */,
 				8BA10CBE297E57C30083EED0 /* Koin.swift in Sources */,
 				ED2E8814298AA0DD003556CA /* HomeView.swift in Sources */,
-				8B273F1B298D56CA00986902 /* ViewExpenseStateWrapper.swift in Sources */,
+				EDB857A329939AE000210222 /* LocalDate+Comparable.swift in Sources */,
 				ED2E8817298ABB95003556CA /* Date+MillisecondsSince1970.swift in Sources */,
-				ED2E8815298AA0E3003556CA /* ExpenseCardView.swift in Sources */,
+				EDB857A129939A9100210222 /* KotlinArray+toArray.swift in Sources */,
 				2152FB042600AC8F00CF470E /* iOSApp.swift in Sources */,
 				7555FF83242A565900829871 /* AddExpenseView.swift in Sources */,
 			);

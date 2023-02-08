@@ -7,9 +7,13 @@
 //
 
 import SwiftUI
+import shared
 
 struct HomeView: View {
     @State private var showingSheet = false
+    let expenseRepository: ExpenseRepository = Koin.instance.get()
+    @State private var expenses: [Expense] = []
+    private var categoryEmojis = ["🛒", "🧾", "🏠", "🚗", "🍽️", "🕹"]
     
     var body: some View {
         VStack(alignment: .center, spacing: 16) {
@@ -44,14 +48,42 @@ struct HomeView: View {
                 Spacer().frame(width: 16)
             }
             
-            ExpenseCardView()
-                .offset(x: 8, y: 0)
-        }.background {
-            Text("Show the expenses list here")
-                .font(.title3.bold())
-                .frame(maxHeight: .infinity)
-                .foregroundColor(.black)
+            List(expenses) { item in
+                HStack {
+                    Text(categoryEmojis[Int(item.category.ordinal)])
+                        .font(.largeTitle)
+                        .padding()
+                        .background {
+                            Circle().foregroundColor(Color.teal)
+                        }
+                        
+                    VStack(alignment: .leading, spacing: 5) {
+                        Text("\(item.category.getFormattedName())")
+                            .font(.callout)
+                            .bold()
+                        
+                        Text("$ \(item.amount)")
+                        
+                        Text("\(item.expenseDate)")
+                            .font(.caption)
+                        
+                        Text(item.note ?? "")
+                            .padding(.horizontal)
+                            .background {
+                                Capsule().fill(Color.mint)
+                            }
+                    }
+                }
+            }.refreshable {
+                getExpenses()
+            }
+        }.onAppear {
+            getExpenses()
         }
+    }
+    
+    private func getExpenses() {
+        expenses = expenseRepository.getExpenseSync().sorted(by: { $0.expenseDate > $1.expenseDate })
     }
 }
 

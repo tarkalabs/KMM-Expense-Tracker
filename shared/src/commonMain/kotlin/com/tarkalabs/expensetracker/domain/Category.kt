@@ -7,14 +7,11 @@ enum class Category {
   TRANSPORTATION,
   DINE_OUT,
   ENTERTAINMENT;
-
-
+  fun getFormattedName(): String {
+    val words = name.lowercase().replace("_", " ").split(' ')
+    return (words.joinToString(separator = " ") { word -> word.replaceFirstChar { it.uppercase() } })
+  }
   companion object {
-    // Helper to convert KotlinArray to List which translated to iOS Array
-    fun getCategoryAsList(): List<Category> {
-      return values().toList()
-    }
-
     fun getCategoryFromName(name: String): Category {
       return Category.valueOf(name)
     }

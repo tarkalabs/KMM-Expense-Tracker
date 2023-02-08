@@ -30,6 +30,10 @@ class ExpenseRepository(private val databaseHelper: DatabaseHelper) {
   fun getExpenses(): Flow<List<Expense>> {
     return databaseHelper.getAllExpenses().map { expenseList -> expenseList.map { it.map() } }
   }
+
+  fun getExpenseSync(): List<Expense> {
+    return databaseHelper.getAllExpensesSync().map { it.map() }
+  }
 }
 
 fun ExpenseDb.map(): Expense {

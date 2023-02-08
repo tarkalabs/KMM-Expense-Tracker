@@ -11,11 +11,11 @@ import Foundation
 
 extension KotlinArray {
     @objc func toArray() -> [AnyObject] {
-        let size = self.size
+        let size = size
         var swiftArray: [AnyObject] = []
 
         for i in 0 ..< size {
-            if let item = self.get(index: i) {
+            if let item = get(index: i) {
                 swiftArray.append(item)
             }
         }

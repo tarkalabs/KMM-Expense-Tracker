@@ -59,7 +59,7 @@ struct HomeView: View {
                         .background {
                             Circle().foregroundColor(Color.teal)
                         }
-                    
+                                        
                     VStack(alignment: .leading, spacing: 5) {
                         Text("\(item.category.getFormattedName())")
                             .font(.callout)
@@ -99,7 +99,7 @@ struct HomeView: View {
                     print("Finished")
                 }
             }, receiveValue: { value in
-                self.expenses = value.expenses
+                expenses = value.expenses
             })
     }
 }

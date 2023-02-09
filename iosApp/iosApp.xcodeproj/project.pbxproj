@@ -19,7 +19,7 @@
 		ED2E8814298AA0DD003556CA /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED2E8810298A9ECA003556CA /* HomeView.swift */; };
 		ED2E8817298ABB95003556CA /* Date+MillisecondsSince1970.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED2E8816298ABB95003556CA /* Date+MillisecondsSince1970.swift */; };
 		ED2ECA8329942307008677CE /* ExpenseCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED2ECA8229942307008677CE /* ExpenseCategory.swift */; };
-		EDB857A129939A9100210222 /* KotlinArray+toArray.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB857A029939A9100210222 /* KotlinArray+toArray.swift */; };
+		EDB857A129939A9100210222 /* KotlinArrayHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB857A029939A9100210222 /* KotlinArrayHelper.swift */; };
 		EDB857A329939AE000210222 /* LocalDate+Comparable.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB857A229939AE000210222 /* LocalDate+Comparable.swift */; };
 		EDB857A529939B0A00210222 /* Expense+Identifiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB857A429939B0A00210222 /* Expense+Identifiable.swift */; };
 /* End PBXBuildFile section */
@@ -48,7 +48,7 @@
 		ED2E8810298A9ECA003556CA /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		ED2E8816298ABB95003556CA /* Date+MillisecondsSince1970.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+MillisecondsSince1970.swift"; sourceTree = "<group>"; };
 		ED2ECA8229942307008677CE /* ExpenseCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenseCategory.swift; sourceTree = "<group>"; };
-		EDB857A029939A9100210222 /* KotlinArray+toArray.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "KotlinArray+toArray.swift"; sourceTree = "<group>"; };
+		EDB857A029939A9100210222 /* KotlinArrayHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KotlinArrayHelper.swift; sourceTree = "<group>"; };
 		EDB857A229939AE000210222 /* LocalDate+Comparable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LocalDate+Comparable.swift"; sourceTree = "<group>"; };
 		EDB857A429939B0A00210222 /* Expense+Identifiable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Expense+Identifiable.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -98,11 +98,11 @@
 			children = (
 				058557BA273AAA24004C7B11 /* Assets.xcassets */,
 				ED2E8818298ABBA6003556CA /* View */,
-				7555FF8C242A565B00829871 /* Info.plist */,
-				2152FB032600AC8F00CF470E /* iOSApp.swift */,
 				058557D7273AAEEB004C7B11 /* Preview Content */,
-				8BA10CBD297E57C30083EED0 /* Koin.swift */,
 				EDB857A62993A2C500210222 /* Utilities */,
+				2152FB032600AC8F00CF470E /* iOSApp.swift */,
+				8BA10CBD297E57C30083EED0 /* Koin.swift */,
+				7555FF8C242A565B00829871 /* Info.plist */,
 			);
 			path = iosApp;
 			sourceTree = "<group>";
@@ -126,11 +126,11 @@
 		EDB857A62993A2C500210222 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
-				EDB857A029939A9100210222 /* KotlinArray+toArray.swift */,
-				EDB857A229939AE000210222 /* LocalDate+Comparable.swift */,
-				EDB857A429939B0A00210222 /* Expense+Identifiable.swift */,
 				ED2E8816298ABB95003556CA /* Date+MillisecondsSince1970.swift */,
 				ED2ECA8229942307008677CE /* ExpenseCategory.swift */,
+				EDB857A429939B0A00210222 /* Expense+Identifiable.swift */,
+				EDB857A029939A9100210222 /* KotlinArrayHelper.swift */,
+				EDB857A229939AE000210222 /* LocalDate+Comparable.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -242,7 +242,7 @@
 				ED2E8814298AA0DD003556CA /* HomeView.swift in Sources */,
 				EDB857A329939AE000210222 /* LocalDate+Comparable.swift in Sources */,
 				ED2E8817298ABB95003556CA /* Date+MillisecondsSince1970.swift in Sources */,
-				EDB857A129939A9100210222 /* KotlinArray+toArray.swift in Sources */,
+				EDB857A129939A9100210222 /* KotlinArrayHelper.swift in Sources */,
 				2152FB042600AC8F00CF470E /* iOSApp.swift in Sources */,
 				7555FF83242A565900829871 /* AddExpenseView.swift in Sources */,
 			);

@@ -16,6 +16,6 @@ extension ExpenseCategory {
     }
     
     static func getCategoryValues() -> [ExpenseCategory] {
-        ExpenseCategory.values().toArray().compactMap { $0 as? ExpenseCategory }
+        KotlinArrayHelper.convert(ExpenseCategory.values())
     }
 }

@@ -6,7 +6,6 @@
 //  Copyright © 2023 orgName. All rights reserved.
 //
 
-import Foundation
 import shared
 
 final class Koin {

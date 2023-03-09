@@ -1,7 +1,7 @@
 # KMM-Expense-Tracker
 
 Cross platform expense tracking application using Kotin multiplatform mobile.
-ToDo: Include link to the medium article when ready
+If you are interested in learning more about the our experience building this application, please [checkout](https://blog.tarkalabs.com/kotlin-multiplatform-mobile-developer-experience-cfdb92d15839?source=friends_link&sk=028922f06a5d9f50f6427fe3b3e559ad).
 
 ## Technologies used
 
